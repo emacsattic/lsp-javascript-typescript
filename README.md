@@ -22,10 +22,10 @@ Install the package `lsp-javascript`
 ## Enabling `lsp-javascript`
 
 ```emacs-lisp
-(add-hook 'js-mode-hook #'lsp-mode)
-(add-hook 'typescript-mode-hook #'lsp-mode) ;; for typescript support
-(add-hook 'js3-mode-hook #'lsp-mode) ;; for js3-mode support
-(add-hook 'rjsx-mode #'lsp-mode) ;; for rjsx-mode support
+(add-hook 'js-mode-hook #'lsp-javascript-typescript-enable)
+(add-hook 'typescript-mode-hook #'lsp-javascript-typescript-enable) ;; for typescript support
+(add-hook 'js3-mode-hook #'lsp-javascript-typescript-enable) ;; for js3-mode support
+(add-hook 'rjsx-mode #'lsp-javascript-typescript-enable) ;; for rjsx-mode support
 ```
 
 You also need
