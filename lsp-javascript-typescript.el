@@ -4,7 +4,7 @@
 
 ;; Author: George Pittarelli <g@gjp.cc>
 ;; Version: 1.0
-;; Package-Requires: ((lsp-mode "2.0"))
+;; Package-Requires: ((lsp-mode "3.0"))
 ;; Keywords: javascript typescript lsp
 ;; URL: https://github.com/emacs-lsp/lsp-javascript
 
