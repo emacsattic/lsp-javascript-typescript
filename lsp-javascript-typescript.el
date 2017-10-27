@@ -34,7 +34,7 @@
 							   (directory-files dir nil "package.json"))))
 
 (lsp-define-stdio-client lsp-javascript-typescript "javascript"
-			 #'lsp-javascript--get-root '("javascript-typescript-stdio"))
+			 lsp-javascript--get-root '("javascript-typescript-stdio"))
 
 (provide 'lsp-javascript-typescript)
 ;;; lsp-javascript-typescript.el ends here
