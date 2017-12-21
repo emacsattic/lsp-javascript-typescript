@@ -17,11 +17,12 @@ suitable paths, and add them to your load path:
 
 ### From MELPA
 
-Install the package `lsp-javascript`
+Install the package `lsp-javascript-typescript`
 
 ## Enabling `lsp-javascript`
 
 ```emacs-lisp
+(require 'lsp-javascript-typescript)
 (add-hook 'js-mode-hook #'lsp-javascript-typescript-enable)
 (add-hook 'typescript-mode-hook #'lsp-javascript-typescript-enable) ;; for typescript support
 (add-hook 'js3-mode-hook #'lsp-javascript-typescript-enable) ;; for js3-mode support
