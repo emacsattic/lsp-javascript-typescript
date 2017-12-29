@@ -1,7 +1,9 @@
 lsp-javascript
 ==============
 
-Javascript and Typescript support for lsp-mode using [javascript-typescript-langserver](https://github.com/sourcegraph/javascript-typescript-langserver).
+Javascript, Typescript and Flow support for lsp-mode using
+- [javascript-typescript-langserver](https://github.com/sourcegraph/javascript-typescript-langserver).
+- [flow-language-server](https://github.com/flowtype/flow-language-server).
 
 ## Installation
 
@@ -17,9 +19,12 @@ suitable paths, and add them to your load path:
 
 ### From MELPA
 
-Install the package `lsp-javascript-typescript`
+Install one of the available packages:
+- `lsp-javascript-typescript`
+- `lsp-javascript-flow`
 
-## Enabling `lsp-javascript`
+## Usage
+### Enabling `lsp-javascript-typescript`
 
 ```emacs-lisp
 (require 'lsp-javascript-typescript)
@@ -35,6 +40,24 @@ installed and on your PATH.
 
 ```bash
 npm i -g javascript-typescript-langserver
+```
+
+(`sudo` may be necessary depending on how you have
+[npm](https://www.npmjs.com/) setup)
+
+### Enabling `lsp-javascript-flow`
+
+```emacs-lisp
+(require 'lsp-javascript-flow)
+(add-hook 'js-mode-hook #'lsp-javascript-flow-enable)
+(add-hook 'js2-mode-hook #'lsp-javascript-flow-enable) ;; for js2-mode support
+(add-hook 'rjsx-mode #'lsp-javascript-flow-enable) ;; for rjsx-mode support
+```
+
+You also need [flow-language-server](https://github.com/flowtype/flow-language-server) installed and on your PATH.
+
+```bash
+npm i -g flow-language-server
 ```
 
 (`sudo` may be necessary depending on how you have
