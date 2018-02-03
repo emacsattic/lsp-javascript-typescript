@@ -68,9 +68,9 @@ npm i -g flow-language-server
 
 ```emacs-lisp
 (require 'lsp-typescript)
-(add-hook 'js-mode-hook #'lsp-javascript-flow-enable)
-(add-hook 'js2-mode-hook #'lsp-javascript-flow-enable) ;; for js2-mode support
-(add-hook 'rjsx-mode #'lsp-javascript-flow-enable) ;; for rjsx-mode support
+(add-hook 'js-mode-hook #'lsp-typescript-enable)
+(add-hook 'js2-mode-hook #'lsp-typescript-enable) ;; for js2-mode support
+(add-hook 'rjsx-mode #'lsp-typescript-enable) ;; for rjsx-mode support
 ```
 
 You also need [typescript-language-server](https://github.com/theia-ide/typescript-language-server) installed and on your PATH.
