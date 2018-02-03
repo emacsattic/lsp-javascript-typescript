@@ -35,7 +35,7 @@
 
 (lsp-define-stdio-client lsp-javascript-typescript "javascript"
                          lsp-javascript--get-root '("javascript-typescript-stdio")
-                         :ignore-messages ("readFile .*? requested by TypeScript but content not available"))
+                         :ignore-messages '("readFile .*? requested by TypeScript but content not available"))
 
 (provide 'lsp-javascript-typescript)
 ;;; lsp-javascript-typescript.el ends here
