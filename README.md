@@ -46,6 +46,23 @@ npm i -g javascript-typescript-langserver
 (`sudo` may be necessary depending on how you have
 [npm](https://www.npmjs.com/) setup)
 
+NOTE: `javascript-typescript-langserver` doesn't take into account the
+completion prefix, which causes some glitchy completion when using
+company. `lsp-javascript-typescript` doesn't handle this yes; for now
+the following can be used as a fix:
+
+```
+(defun my-company-transformer (candidates)
+  (let ((completion-ignore-case t))
+    (all-completions (company-grab-symbol) candidates)))
+
+(defun my-js-hook nil
+  (make-local-variable 'company-transformers)
+  (push 'my-company-transformer company-transformers))
+
+(add-hook 'js-mode-hook 'my-js-hook)
+```
+
 ### Enabling `lsp-javascript-flow`
 
 ```emacs-lisp
