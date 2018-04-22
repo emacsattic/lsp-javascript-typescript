@@ -4,7 +4,7 @@
 
 ;; Author: George Pittarelli <g@gjp.cc>
 ;; Version: 1.0
-;; Package-Requires: ((lsp-mode "3.0") (typescript "0.1.1"))
+;; Package-Requires: ((lsp-mode "3.0") (typescript-mode "0.1"))
 ;; Keywords: javascript typescript lsp
 ;; URL: https://github.com/emacs-lsp/lsp-javascript
 
@@ -29,7 +29,7 @@
 ;;; Code:
 
 (require 'lsp-mode)
-(require 'typescript)
+(require 'typescript-mode)
 
 (defconst lsp-javascript--get-root
   (lsp-make-traverser #'(lambda (dir)
