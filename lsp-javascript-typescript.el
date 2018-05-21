@@ -50,7 +50,7 @@
    client "javascript" 'lsp-javascript-typescript--render-string))
 
 (lsp-define-stdio-client lsp-javascript-typescript "javascript"
-                         lsp-javascript--get-root '("javascript-typescript-stdio")
+                         lsp-javascript-typescript--get-root '("javascript-typescript-stdio")
                          :ignore-messages '("readFile .*? requested by TypeScript but content not available")
                          :initialize 'lsp-javascript-typescript--initialize-client)
 
