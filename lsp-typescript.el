@@ -31,9 +31,33 @@
 (require 'lsp-mode)
 (require 'typescript-mode)
 
+;;;###autoload
+(defcustom lsp-typescript-server
+  "typescript-language-server"
+  "The typescript-language-server executable to use.
+Leave as just the executable name to use the default behavior of
+finding the executable with `exec-path'."
+  :group 'lsp-typescript
+  :risky t
+  :type 'file)
+
+;;;###autoload
+(defcustom lsp-typescript-server-args
+  '()
+  "Extra arguments for the typescript-language-server language server"
+  :group 'lsp-typescript
+  :risky t
+  :type '(repeat string))
+
 (defconst lsp-typescript--get-root
   (lsp-make-traverser #'(lambda (dir)
                           (directory-files dir nil "package.json"))))
+
+(defun lsp-typescript--ls-command ()
+  "Generate the language server startup command."
+  `(,lsp-typescript-server
+    "--stdio"
+    ,@lsp-typescript-server-args))
 
 (defun lsp-typescript--render-string (str)
   (ignore-errors
@@ -52,8 +76,9 @@
 (lsp-define-stdio-client
  lsp-typescript "javascript"
  lsp-typescript--get-root
- '("typescript-language-server" "--stdio")
- :initialize 'lsp-typescript--initialize-client)
+ nil
+ :initialize 'lsp-typescript--initialize-client
+ :command-fn 'lsp-typescript--ls-command)
 
 (provide 'lsp-typescript)
 ;;; lsp-typescript.el ends here
