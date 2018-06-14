@@ -60,12 +60,13 @@ finding the executable with `exec-path'."
     ,@lsp-typescript-server-args))
 
 (defun lsp-typescript--render-string (str)
-  (ignore-errors
-    (with-temp-buffer
-      (typescript-mode)
-      (insert str)
-      (font-lock-ensure)
-      (buffer-string))))
+  (condition-case nil
+      (with-temp-buffer
+	      (delay-mode-hooks (typescript-mode))
+	      (insert str)
+	      (font-lock-ensure)
+	      (buffer-string))
+    (error str)))
 
 (defun lsp-typescript--initialize-client (client)
   (lsp-provide-marked-string-renderer
