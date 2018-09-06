@@ -74,10 +74,15 @@ finding the executable with `exec-path'."
   (lsp-provide-marked-string-renderer
    client "javascript" 'lsp-typescript--render-string))
 
+(defun lsp-typescript--language-id (buffer)
+  (if (equal "ts" (file-name-extension (buffer-file-name buffer)))
+      "typescript" "javascript"))
+
 (lsp-define-stdio-client
  lsp-typescript "javascript"
  lsp-typescript--get-root
  nil
+ :language-id-fn 'lsp-typescript--language-id
  :initialize 'lsp-typescript--initialize-client
  :command-fn 'lsp-typescript--ls-command)
 
