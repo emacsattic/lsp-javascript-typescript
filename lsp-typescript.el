@@ -49,10 +49,6 @@ finding the executable with `exec-path'."
   :risky t
   :type '(repeat string))
 
-(defconst lsp-typescript--get-root
-  (lsp-make-traverser #'(lambda (dir)
-                          (directory-files dir nil "package.json"))))
-
 (defun lsp-typescript--ls-command ()
   "Generate the language server startup command."
   `(,lsp-typescript-server
@@ -80,7 +76,7 @@ finding the executable with `exec-path'."
 
 (lsp-define-stdio-client
  lsp-typescript "javascript"
- lsp-typescript--get-root
+ nil
  nil
  :language-id-fn 'lsp-typescript--language-id
  :initialize 'lsp-typescript--initialize-client

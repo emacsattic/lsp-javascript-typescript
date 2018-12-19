@@ -55,13 +55,9 @@ finding the executable with `exec-path'."
     "--stdio"
     ,@lsp-javascript-flow-server-args))
 
-(defconst lsp-javascript-flow--get-root
-  (lsp-make-traverser #'(lambda (dir)
-                          (directory-files dir nil "package.json"))))
-
 (lsp-define-stdio-client
  lsp-javascript-flow "javascript"
- lsp-javascript-flow--get-root
+ nil
  nil
  :ignore-messages '("\[INFO].*?nuclide")
  :command-fn 'lsp-javascript-flow--ls-command)
